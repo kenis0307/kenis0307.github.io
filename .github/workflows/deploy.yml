@@ -5,6 +5,10 @@ on:
     branches:
       - main # 当main分支有推送时触发
 
+# 添加权限设置
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -12,6 +16,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -25,11 +34,14 @@ jobs:
       - name: Build
         run: npm run docs:build
 
+      - name: Check build output
+        run: ls -la .vitepress/dist || echo "Build directory not found"
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: .vitepress/dist # 构建产物目录
           branch: gh-pages # 部署到gh-pages分支
           clean: true # 清理目标分支
-          commit-message: "Deploy from ${{ github.event.head_commit.message }}" # 自定义提交信息
-          token: ${{ secrets.GITHUB_TOKEN }} # 使用GitHub Token
+          token: ${{ secrets.DEPLOY_TOKEN }} # 使用自定义令牌
+          commit-message: "Deploy from ${{ github.event.head_commit.message }} (Commit: ${{ github.sha }}, Time: ${{ github.event.head_commit.timestamp }})"
