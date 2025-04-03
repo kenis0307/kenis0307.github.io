@@ -31,4 +31,5 @@ jobs:
           folder: .vitepress/dist # 构建产物目录
           branch: gh-pages # 部署到gh-pages分支
           clean: true # 清理目标分支
+          commit-message: "Deploy from ${{ github.event.head_commit.message }}" # 自定义提交信息
           token: ${{ secrets.GITHUB_TOKEN }} # 使用GitHub Token
