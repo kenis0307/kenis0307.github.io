@@ -8,14 +8,14 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '前端实战：使用 eslint + prettier 清理 Vue2 老项目的 💩 山', link: '/前端实战：使用 eslint + prettier 清理 Vue2 老项目的 💩 山' },
     ],
 
     sidebar: [
       {
         text: 'Examples',
         items: [
-          { text: '前端实战：使用 eslint + prettier 清理 Vue2 老项目的 💩 山', link: '/vue2_add_eslint_prettier_clean_shit_mountain' },
+          { text: '前端实战：使用 eslint + prettier 清理 Vue2 老项目的 💩 山', link: '/前端实战：使用 eslint + prettier 清理 Vue2 老项目的 💩 山' },
           { text: 'Runtime API Examples', link: '/api-examples' }
         ]
       }
