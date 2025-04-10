@@ -38,9 +38,7 @@ https://github.com/PowerShell/Win32-OpenSSH/releases/download/v9.8.2.0p2-Preview
 
 ```powershell
 cp sshd_config_default sshd_config
-```
 
-```powershell
 nvim sshd_config
 ```
 
