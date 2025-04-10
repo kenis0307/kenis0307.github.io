@@ -12,6 +12,10 @@ https://github.com/PowerShell/Win32-OpenSSH/releases/download/v9.8.2.0p2-Preview
 7z x OpenSSH-Win64.zip
 ```
 
+- 后续操作不需要管理员权限，普通的 powershell 即可
+- 不使用自带的 install-sshd.ps1 安装成服务
+- 可以将自己写的启动脚本设置成开机自动启动也可以实现跟系统服务同样的效果
+
 ## 生成密钥
 
 需要生成三个类型的密钥（rsa、ecdsa、ed25519）
