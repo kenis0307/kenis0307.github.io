@@ -19,6 +19,7 @@ https://github.com/PowerShell/Win32-OpenSSH/releases/download/v9.8.2.0p2-Preview
 ## 生成密钥
 
 需要生成三个类型的密钥（rsa、ecdsa、ed25519）
+
 密钥保存的路径需要填写到配置文件里的
 
 ```powershell
