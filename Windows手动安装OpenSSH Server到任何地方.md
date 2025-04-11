@@ -133,15 +133,24 @@ Subsystem       sftp    sftp-server.exe
 #       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
 ```
 
-## 编写启动脚本
+## 编写启动脚本和终止脚本
 
 在解压出来的目录下编写一个启动脚本，方便启动
 
 ```powershell
-nvim start_sshd.ps1
+nvim start-sshd.ps1
 ```
 
 ```powershell
-# start_sshd.ps1
-./sshd.exe -f ./sshd_config
+# start-sshd.ps1
+Start-Process powershell.exe -ArgumentList "-WindowStyle Hidden", "-Command", "./sshd.exe -f ./sshd_config"
+```
+
+```powershell
+nvim stop-sshd.ps1
+```
+
+```powershell
+# stop-sshd.ps1
+Get-Process sshd | Stop-Process -Force
 ```
