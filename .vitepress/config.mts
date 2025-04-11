@@ -18,6 +18,12 @@ function getSidebar() {
 export default defineConfig({
   title: "Kenis0307 Blog",
   description: "随笔",
+  markdown: {
+    theme: {
+      light: "catppuccin-latte",
+      dark: "catppuccin-mocha",
+    },
+  },
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
